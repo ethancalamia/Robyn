@@ -710,13 +710,13 @@ class PlotDataGenerator:
         # Calculate carryover percentages
         df_caov = (
             vec_collect["xDecompVecCarryover"].groupby("sol_id").sum().reset_index()
-        ).drop(columns="ds")
+        )
         df_total = (
             vec_collect["xDecompVec"]
             .groupby("sol_id")
             .sum()
             .reset_index()
-            .drop(columns="ds")
+            
         )
         df_caov_pct = df_caov.copy()
         df_caov_pct.loc[:, df_caov_pct.columns[1:]] = (
