@@ -30,7 +30,7 @@ class CalibrationInputValidation(Validation):
         self.calibration_input = calibration_input
         self.window_start = window_start
         self.window_end = window_end
-        self.valid_channels: Set[str] = set(self.mmmdata.mmmdata_spec.paid_media_spends)
+        self.valid_channels: Set[str] = set(self.mmmdata.mmmdata_spec.paid_media_spends + self.mmmdata.mmmdata_spec.organic_vars)
         logger.debug("Valid channels initialized: %s", self.valid_channels)
 
     def check_obj_weights(
